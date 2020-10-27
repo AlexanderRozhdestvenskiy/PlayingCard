@@ -13,6 +13,7 @@
 		891358E425488C4F007627E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 891358E225488C4F007627E8 /* Main.storyboard */; };
 		891358E625488C50007627E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 891358E525488C50007627E8 /* Assets.xcassets */; };
 		891358E925488C50007627E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 891358E725488C50007627E8 /* LaunchScreen.storyboard */; };
+		891358F225488D16007627E8 /* PlayingCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891358F125488D16007627E8 /* PlayingCard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		891358E525488C50007627E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		891358E825488C50007627E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		891358EA25488C50007627E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		891358F125488D16007627E8 /* PlayingCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayingCard.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,10 +58,11 @@
 		891358DB25488C4F007627E8 /* PlayingCard */ = {
 			isa = PBXGroup;
 			children = (
+				891358E025488C4F007627E8 /* ViewController.swift */,
+				891358F125488D16007627E8 /* PlayingCard.swift */,
+				891358E225488C4F007627E8 /* Main.storyboard */,
 				891358DC25488C4F007627E8 /* AppDelegate.swift */,
 				891358DE25488C4F007627E8 /* SceneDelegate.swift */,
-				891358E025488C4F007627E8 /* ViewController.swift */,
-				891358E225488C4F007627E8 /* Main.storyboard */,
 				891358E525488C50007627E8 /* Assets.xcassets */,
 				891358E725488C50007627E8 /* LaunchScreen.storyboard */,
 				891358EA25488C50007627E8 /* Info.plist */,
@@ -139,6 +142,7 @@
 			files = (
 				891358E125488C4F007627E8 /* ViewController.swift in Sources */,
 				891358DD25488C4F007627E8 /* AppDelegate.swift in Sources */,
+				891358F225488D16007627E8 /* PlayingCard.swift in Sources */,
 				891358DF25488C4F007627E8 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
