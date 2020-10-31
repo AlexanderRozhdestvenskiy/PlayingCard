@@ -9,17 +9,11 @@ import UIKit
 
 class PlayingCardView: UIView {
     
+    // MARK: - Properties
+    
     var rank: Int = 5 { didSet { setNeedsDisplay(); setNeedsLayout() } }
     var suit: String = "❤️" { didSet { setNeedsDisplay(); setNeedsLayout() } }
     var isFaceUp: Bool = true { didSet { setNeedsDisplay(); setNeedsLayout() } }
-    
-    private func centerAttributedString(_ string: String, fontSize: CGFloat) -> NSAttributedString {
-        var font = UIFont.preferredFont(forTextStyle: .body).withSize(fontSize)
-        font = UIFontMetrics(forTextStyle: .body).scaledFont(for: font)
-        let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.alignment = .center
-        return NSAttributedString(string: string, attributes: [.paragraphStyle: paragraphStyle, .font: font])
-    }
     
     private var cornerString: NSAttributedString {
         return centerAttributedString(rankString+"\n"+suit, fontSize: cornerFontSize)
@@ -28,18 +22,11 @@ class PlayingCardView: UIView {
     private lazy var upperLeftCornerLabel: UILabel = createCornerLabel()
     private lazy var lowerRightCornerLabel: UILabel = createCornerLabel()
     
-    private func createCornerLabel() -> UILabel {
-        let label = UILabel()
-        label.numberOfLines = 0
-        addSubview(label)
-        return label
-    }
+    // MARK: - Override Func
     
-    private func configureCornerLabel(_ label: UILabel) {
-        label.attributedText = cornerString
-        label.frame.size = CGSize.zero
-        label.sizeToFit()
-        label.isHidden = !isFaceUp
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        setNeedsDisplay()
+        setNeedsLayout()
     }
     
     override func layoutSubviews() {
@@ -57,15 +44,39 @@ class PlayingCardView: UIView {
             .offsetBy(dx: -lowerRightCornerLabel.frame.size.width, dy: -lowerRightCornerLabel.frame.size.height)
     }
     
-    
-    
     override func draw(_ rect: CGRect) {
         let roundedRect = UIBezierPath(roundedRect: bounds, cornerRadius: cornerRadius)
         roundedRect.addClip()
         UIColor.white.setFill()
         roundedRect.fill()
     }
+
+    // MARK: - Methods
+
+    private func centerAttributedString(_ string: String, fontSize: CGFloat) -> NSAttributedString {
+        var font = UIFont.preferredFont(forTextStyle: .body).withSize(fontSize)
+        font = UIFontMetrics(forTextStyle: .body).scaledFont(for: font)
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.alignment = .center
+        return NSAttributedString(string: string, attributes: [.paragraphStyle: paragraphStyle, .font: font])
+    }
+    
+    private func createCornerLabel() -> UILabel {
+        let label = UILabel()
+        label.numberOfLines = 0
+        addSubview(label)
+        return label
+    }
+    
+    private func configureCornerLabel(_ label: UILabel) {
+        label.attributedText = cornerString
+        label.frame.size = CGSize.zero
+        label.sizeToFit()
+        label.isHidden = !isFaceUp
+    }
 }
+
+    // MARK: - Extension
 
 extension PlayingCardView {
     
